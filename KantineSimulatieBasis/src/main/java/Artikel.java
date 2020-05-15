@@ -5,7 +5,7 @@ public class Artikel{
     private int prijs;
 
     //constructor met parameter C
-    public Atrikel(String naam, int prijs){
+    public Artikel(String naam, int prijs){
         this.naam = naam;
         this.prijs = prijs;
     }
@@ -22,15 +22,19 @@ public class Artikel{
     }
 
     public int getPrijs(){
-        return prijs
+        return prijs;
     }
 
     public void setNaam(String newNaam){
-        this.naam = newNaam
+        this.naam = newNaam;
     }
 
     public void setPrijs(int newPrijs){
-        this.prijs = newPrijs
+        this.prijs = newPrijs;
+    }
+
+    public String toString() {
+        return naam + ", " + prijs;
     }
 
 }

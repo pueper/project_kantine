@@ -56,13 +56,41 @@ public class Datum {
 	}
 
 	/**
-	 * Getter voor Sting weergave van datum
+	 * Getter voor String weergave van datum
 	 *
 	 * @return Geboortedatum
 	 */
 	public String getDatumAsString() {
-		// TODO
-		return "";
+		String stringMaand;
+		switch(maand) {
+			case 1: stringMaand = "Januari";
+				break;
+			case 2: stringMaand = "Februari";
+				break;
+			case 3: stringMaand = "Maart";
+				break;
+			case 4: stringMaand = "April";
+				break;
+			case 5: stringMaand = "Mei";
+				break;
+			case 6: stringMaand = "Juni";
+				break;
+			case 7: stringMaand = "Juli";
+				break;
+			case 8: stringMaand = "Augustus";
+				break;
+			case 9: stringMaand = "September";
+				break;
+			case 10: stringMaand = "Oktober";
+				break;
+			case 11: stringMaand = "November";
+				break;
+			case 12: stringMaand = "December";
+				break;
+			default: stringMaand = "Onbekend";
+				break;
+		}
+		return dag + " " + stringMaand + " " + jaar;
 	}
 
 	public int getJaar() {
