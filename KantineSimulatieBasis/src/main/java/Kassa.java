@@ -18,6 +18,9 @@ public class Kassa {
      */
     public void rekenAf(Dienblad klant) {
         // method body omitted
+        totaalPrijs = Dienblad.getTotaalPrijs();
+        totaalArtikelen = Dienblad.getAantalArtikelen();
+
     }
 
     /**
