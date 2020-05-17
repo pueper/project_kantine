@@ -1,5 +1,4 @@
-public class Artikel{
-
+public class Artikel {
     //aanmaak velden
     private String naam;
     private int prijs;
@@ -36,7 +35,6 @@ public class Artikel{
     public String toString() {
         return naam + ", " + prijs;
     }
-
 }
 
 //Declaratie : Het opzetten van de variabele, het type en de naam van de variabele voor de eerste keer weergeven
