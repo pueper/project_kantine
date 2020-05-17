@@ -2,10 +2,10 @@ public class Artikel {
     public static void main(String[] args) {
         //aanmaak velden
         private String naam;
-        private int prijs;
+        private double prijs;
 
         //constructor met parameter C
-    public Artikel(String naam, int prijs){
+    public Artikel(String naam, double prijs){
             this.naam = naam;
             this.prijs = prijs;
         }
