@@ -1,38 +1,39 @@
 public class Artikel {
-    public static void main(String[] args) {
-        //aanmaak velden
-        private String naam;
-        private double prijs;
+    //aanmaak velden
+    private String naam;
+    private int prijs;
 
-        //constructor met parameter C
-    public Artikel(String naam, double prijs){
-            this.naam = naam;
-            this.prijs = prijs;
-        }
+    //constructor met parameter C
+    public Artikel(String naam, int prijs){
+        this.naam = naam;
+        this.prijs = prijs;
+    }
 
-        //constructor zonder parameter D
-    public Artikel() {
-            naam = "Naam";
-            prijs = 2;
-        }
+    //constructor zonder parameter D
+    public Artikel(){
+        naam = "Naam";
+        prijs = 2;
+    }
 
-        //getters en setters E
-        public String getNaam () {
-            return naam;
-        }
+    //getters en setters E
+    public String getNaam(){
+        return naam;
+    }
 
-        public int getPrijs () {
-            return prijs;
-        }
+    public int getPrijs(){
+        return prijs;
+    }
 
-        public void setNaam (String newNaam){
-            this.naam = newNaam;
-        }
+    public void setNaam(String newNaam){
+        this.naam = newNaam;
+    }
 
-        public void setPrijs ( int newPrijs){
-            this.prijs = newPrijs;
-        }
+    public void setPrijs(int newPrijs){
+        this.prijs = newPrijs;
+    }
 
+    public String toString() {
+        return naam + ", " + prijs;
     }
 }
 
