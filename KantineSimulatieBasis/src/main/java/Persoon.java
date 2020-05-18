@@ -18,6 +18,11 @@ public class Persoon {
         setGeslacht(geslacht);
     }
 
+    /*
+     * getter voor geslacht, waarbij de uitkomst een string is, niet een char zoals in het geslacht-veld opgeslagen
+     *
+     * @return geslacht
+     */
     public String getGeslacht() {
         String uitkomst;
         if (geslacht == 'V') {
@@ -30,6 +35,9 @@ public class Persoon {
         return uitkomst;
     }
 
+    /*
+     * setter voor geslacht, inclusief check
+     */
     public void setGeslacht(char geslacht) {
         geslacht = Character.toUpperCase(geslacht);
         if ((geslacht == 'V') || (geslacht == 'M')) {
@@ -39,6 +47,11 @@ public class Persoon {
         }
     }
 
+    /*
+     * getter voor geboortedatum, inclusief check
+     *
+     * @return geboortedatum(als check = true)/"onbekend"
+     */
     public String getGeboortedatum() {
         if(!geboortedatum.bestaatDatum(geboortedatum.getDag(), geboortedatum.getMaand(), geboortedatum.getJaar())){
             return "Onbekend";
