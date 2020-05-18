@@ -1,5 +1,4 @@
 import java.util.Iterator;
-
 public class Kassa {
 
     /**
@@ -20,6 +19,7 @@ public class Kassa {
         // method body omitted
         totaalPrijs = Dienblad.getTotaalPrijs();
         totaalArtikelen = Dienblad.getAantalArtikelen();
+        dienblad = Dienblad.artikelen;
 
     }
 
@@ -31,6 +31,7 @@ public class Kassa {
      */
     public int aantalArtikelen() {
         // method body omitted
+
     }
 
     /**
@@ -49,5 +50,7 @@ public class Kassa {
      */
     public void resetKassa() {
         // method body omitted
+        dienblad.clear();
+
     }
 }

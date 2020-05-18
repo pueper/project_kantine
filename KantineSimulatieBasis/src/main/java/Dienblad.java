@@ -7,12 +7,30 @@ public class Dienblad {
     public static void main(String[] args) {
         private ArrayList<Artikel> artikelen;
         private HashMap<Artikel, prijs> prijslijst;
+
         /**
-         * Constructor
+         * Constructor zonder parameter
          */
-    public Dienblad() {
+        public Dienblad() {
             ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
             HashMap<Artikel, prijs> prijslijst = new HashMap<Artikel, prijs>();
+        }
+
+        //constructor met parameter klant (b)
+        public Dienblad(Persoon klant) {
+            ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
+            HashMap<Artikel, prijs> prijslijst = new HashMap<Artikel, prijs>();
+            this.klant = klant
+        }
+
+        //setter klant (b)
+        public void setKlant(Persoon klant){
+            this.klant = klant;
+        }
+
+        //getter klant (b)
+        public void getKlant(){
+            return klant;
         }
 
         /**
