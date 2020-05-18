@@ -4,14 +4,15 @@ public class Datum {
 	private int maand;
 	private int jaar;
 
+	//parameterloze constructor. zet alle velden op 0
 	public Datum() {
 		dag = 0;
 		maand = 0;
 		jaar = 0;
 	}
 
+	//constructor met parameters, inclusief datum-check
 	public Datum(int dag, int maand, int jaar) {
-
 		if(bestaatDatum(dag, maand, jaar)){
 			this.dag = dag;
 			this.maand = maand;
