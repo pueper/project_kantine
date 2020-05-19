@@ -7,7 +7,11 @@ public class Persoon {
     private char geslacht;
 
     public Persoon() {
+        bsn = 0;
+        voornaam = "";
+        achternaam = "";
         geboortedatum = new Datum();
+        geslacht = 'o';
     }
 
     public Persoon(int bsn, String voornaam, String achternaam, Datum geboortedatum, char geslacht) {
@@ -43,6 +47,7 @@ public class Persoon {
         if ((geslacht == 'V') || (geslacht == 'M')) {
             this.geslacht = geslacht;
         } else {        //iets met de waarde doen om duidelijk te maken dat de controle mislukt?
+            this.geslacht = 'o';
             System.out.println("Vul een 'V' voor vrouwelijk of een 'M' voor mannelijk in.");
         }
     }

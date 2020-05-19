@@ -29,8 +29,7 @@ public class KassaRij {
      */
     public Dienblad eerstePersoonInRij() {
         if(erIsEenRij()){
-            Dienblad klant = dienbladen.get(0);
-            dienbladen.remove(0);
+            Dienblad klant = dienbladen.remove(0);
             return klant;
         }
         return null;
@@ -42,9 +41,6 @@ public class KassaRij {
      * @return Of er wel of geen rij bestaat
      */
     public boolean erIsEenRij() {
-        if(dienbladen.isEmpty()) {
-            return false;
-        }
-        return true;
+        return !dienbladen.isempty();
     }
 }
