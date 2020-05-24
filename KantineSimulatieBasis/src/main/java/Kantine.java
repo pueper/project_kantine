@@ -21,8 +21,8 @@ public class Kantine {
         Dienblad dienblad1 = new Dienblad(persoon1);
         Artikel artikel1 = new Artikel("iets", 3);
         Artikel artikel2 = new Artikel("nog iets", 3);
-        dienblad1.voegtoe(artikel1);
-        dienblad1.voegtoe(artikel2);
+        dienblad1.voegToe(artikel1);
+        dienblad1.voegToe(artikel2);
         kassarij.sluitAchteraan(dienblad1);
     }
 
@@ -31,33 +31,16 @@ public class Kantine {
      */
     public void verwerkRijVoorKassa() {
         while (kassarij.erIsEenRij()) {
-            kassarij.rekenAf(kassarij.eerstePersoonInRij());
+            kassa.rekenAf(kassarij.eerstePersoonInRij());
         }
     }
 
     /**
-     * Deze methode telt het geld uit de kassa
+     * Deze geeft het kassa-object terug
      *
      * @return hoeveelheid geld in kassa
      */
-    public double hoeveelheidGeldInKassa() {
-        return kassa.hoeveelheidGeldInKassa();
-    }
-
-    /**
-     * Deze methode geeft het aantal gepasseerde artikelen.
-     *
-     * @return het aantal gepasseerde artikelen
-     */
-    public int aantalArtikelen() {
-        return kassa.aantalArtikelen();
-    }
-
-    /**
-     * Deze methode reset de bijgehouden telling van het aantal artikelen en "leegt" de inhoud van
-     * de kassa.
-     */
-    public void resetKassa() {
-        kassa.resetKassa();
+    public Kassa getKassa(){
+        return kassa;
     }
 }

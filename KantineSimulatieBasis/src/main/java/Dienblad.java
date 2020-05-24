@@ -5,21 +5,19 @@ import java.util.HashMap;
 
 public class Dienblad {
     private ArrayList<Artikel> artikelen;
-    private HashMap<Artikel, prijs> prijslijst;
+    Persoon klant;
 
     /**
      * Constructor zonder parameter
      */
     public Dienblad() {
         ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
-        HashMap<Artikel, prijs> prijslijst = new HashMap<Artikel, prijs>();
     }
 
     //constructor met parameter klant (b)
     public Dienblad(Persoon klant) {
         ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
-        HashMap<Artikel, prijs> prijslijst = new HashMap<Artikel, prijs>();
-        this.klant = klant
+        this.klant = klant;
     }
 
     //setter klant (b)
@@ -28,7 +26,7 @@ public class Dienblad {
     }
 
     //getter klant (b)
-    public void getKlant() {
+    public Persoon getKlant() {
         return klant;
     }
 
@@ -48,8 +46,7 @@ public class Dienblad {
      * @return Het aantal artikelen
      */
     public int getAantalArtikelen() {
-        aantal = artikelen.size();
-        return aantal;
+        return artikelen.size();
     }
 
     /**
@@ -59,14 +56,12 @@ public class Dienblad {
      */
     public double getTotaalPrijs() {
         double totaal = 0;
-        if (artikel in artikelen){
-            for (double i : prijslijst.values() ;
-            i > totaal;
-            i++){
-                return totaal;
+        if (!artikelen.isEmpty()){
+            for (Artikel artikel : artikelen){
+                totaal = totaal + artikel.getPrijs();
             }
-
         }
+        return totaal;
     }
 
 }
