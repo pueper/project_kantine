@@ -1,7 +1,7 @@
 public class Artikel {
     //aanmaak velden
     private String naam;
-    private int prijs;
+    private double prijs;
 
     //constructor met parameter C
     public Artikel(String naam, int prijs){
