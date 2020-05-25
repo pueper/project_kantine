@@ -2,6 +2,7 @@ public class Kantine {
 
     private Kassa kassa;
     private KassaRij kassarij;
+    private KantineAanbod kantineaanbod;
 
     /**
      * Constructor
@@ -9,6 +10,15 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
+        kantineaanbod = new KantineAanbod();
+    }
+
+    public String getKantineaanbod(){
+       return kantineaanbod;
+    }
+
+    public void setKantineaanbod(KantineAanbod kantineaanbod){
+        this.kantineaanbod = kantineaanbod;
     }
 
     /**
