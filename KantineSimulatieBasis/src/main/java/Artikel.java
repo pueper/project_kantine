@@ -4,7 +4,7 @@ public class Artikel {
     private double prijs;
 
     //constructor met parameter C
-    public Artikel(String naam, int prijs){
+    public Artikel(String naam, double prijs){
         this.naam = naam;
         this.prijs = prijs;
     }
