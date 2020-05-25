@@ -145,10 +145,10 @@ public class KantineSimulatie {
      * @param dienblad
      */
     public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen) {
-        Persoon persoon1 = new Persoon();
-        Dienblad dienblad1 = new Dienblad(persoon1);
-        Artikel artikel1 = new Artikel("iets", 3);
-        Artikel artikel2 = new Artikel("nog iets", 3);
+        Persoon persoon1 = new Persoon(); //ook vanaf dienblad?
+        Dienblad dienblad1 = new Dienblad(persoon1); //vanaf dienblad
+        Artikel artikel1 = new Artikel("iets", 3); //iets met String[] artikelnaam
+        Artikel artikel2 = new Artikel("nog iets", 3); //iets met String[] artikelnaam
         dienblad1.voegToe(artikel1);
         dienblad1.voegToe(artikel2);
         kassarij.sluitAchteraan(dienblad1);
