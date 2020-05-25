@@ -41,29 +41,13 @@ public class Dienblad {
     }
 
     /**
-     * Methode om aantal artikelen op dienblad te tellen
+     * Methode om de Stack artikelen op dienblad te krijgen
      *
-     * @return Het aantal artikelen
+     * @return De artikelen
      */
-    public int getAantalArtikelen() {
-        return artikelen.size();
+    public Stack<Artikel> getArtikelen() {
+        return artikelen;
     }
-
-    /**
-     * Methode om de totaalprijs van de artikelen op dienblad uit te rekenen
-     *
-     * @return De totaalprijs
-     */
-    public double getTotaalPrijs() {
-        double totaal = 0;
-        if (!artikelen.isEmpty()){
-            for (Artikel artikel : artikelen){
-                totaal = totaal + artikel.getPrijs();
-            }
-        }
-        return totaal;
-    }
-
 }
 
 
