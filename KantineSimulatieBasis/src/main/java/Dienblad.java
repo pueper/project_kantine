@@ -4,7 +4,7 @@ import java.util.Stack;
 import java.util.HashMap;
 
 public class Dienblad {
-    private ArrayList<Artikel> artikelen;
+    private Stack<Artikel> artikelen;
     Persoon klant;
 
     /**
@@ -16,7 +16,7 @@ public class Dienblad {
 
     //constructor met parameter klant (b)
     public Dienblad(Persoon klant) {
-        ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
+        Stack<Artikel> artikelen = new Stack<Artikel>();
         this.klant = klant;
     }
 
