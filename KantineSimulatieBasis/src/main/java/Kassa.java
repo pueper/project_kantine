@@ -1,6 +1,5 @@
 import java.util.Iterator;
 public class Kassa {
-
     /**
      * Constructor
      */
@@ -8,8 +7,7 @@ public class Kassa {
         // method body omitted
         totaalPrijs = Dienblad.getTotaalPrijs();
         totaalArtikelen = Dienblad.getAantalArtikelen();
-        dienblad = Dienblad.artikelen;
-        prijslijst = Dienblad.prijslijst;
+        bestelling = Dienblad.artikelen;
     }
 
     /**
@@ -21,14 +19,12 @@ public class Kassa {
      */
     public void rekenAf(Dienblad klant) {
         // method body omitted
-        int controletotaal = 0;
-        aantalArtikelen();
-        totaalprijs;
-        controletotaal + totaalprijs = controletotaal;
-        System.out.println("U moet", totaalprijs, "afrekenen")
-
-
-
+        int controleTotaalArtikelen = 0;
+        int controlePrijs = 0;
+        aantal = aantalArtikelen();
+        prijs = totaalPrijs;
+        controlePrijs + prijs;
+        controleTotaalArtikelen + aantal;
     }
 
     /**
@@ -38,11 +34,14 @@ public class Kassa {
      * @return aantal artikelen
      */
     public int aantalArtikelen(Dienblad dienblad) {
-        resetWaarden();
-        totaalartikelen = Dienblad.getAantalArtikelen();
-        return totaalartikelen;
-        
+        resetKassa();
+        for(int i = 0; i < bestelling; i++) {
+            return i;
+        }
     }
+
+
+
 
     /**
      * Geeft het totaalbedrag van alle artikelen die de kassa zijn gepasseerd, vanaf het moment dat
@@ -52,8 +51,10 @@ public class Kassa {
      */
     public double hoeveelheidGeldInKassa() {
         // method body omitted
-        totaalprijs;
-        
+        int kassaInhoud = 0
+        resetKassa();
+        kassaInhoud = totaalprijs + kassaInhoud;
+        return kassaInhoud;
 
     }
 
@@ -67,7 +68,4 @@ public class Kassa {
 
     }
 
-    public void resetWaarden(){
-        prijslijst.clear();
-    }
 }
