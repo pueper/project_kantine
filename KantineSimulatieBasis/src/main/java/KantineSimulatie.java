@@ -44,7 +44,7 @@ public class KantineSimulatie {
     /**
      * Start een simulatie
      */
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         int dagen;
 
         if (args.length == 0) {
@@ -53,6 +53,6 @@ public class KantineSimulatie {
             dagen = Integer.parseInt(args[0]);
         }
 
-        simuleer(dagen);
-    }*/
+        simulate(dagen);
+    }
 }

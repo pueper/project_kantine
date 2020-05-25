@@ -10,10 +10,10 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
-        kantineaanbod = new KantineAanbod();
+        //kantineaanbod = new KantineAanbod();
     }
 
-    public String getKantineaanbod(){
+    public KantineAanbod getKantineaanbod(){
        return kantineaanbod;
     }
 
