@@ -26,8 +26,8 @@
   <component name="ChangeListManager">
     <list default="true" id="21febe36-74f5-41a3-8421-603c1d78e638" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Dienblad.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Dienblad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KassaRij.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KassaRij.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kantine.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kantine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineSimulatie_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineSimulatie_2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

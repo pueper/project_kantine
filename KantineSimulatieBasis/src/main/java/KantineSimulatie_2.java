@@ -126,6 +126,7 @@ public class KantineSimulatie {
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
 
+
             }
 
             // verwerk rij voor de kassa
@@ -137,5 +138,21 @@ public class KantineSimulatie {
             // reset de kassa voor de volgende dag
 
         }
+    }
+
+    /**In deze methode wordt een dienblad met artikelen in de kassarij geplaatst.
+     *
+     * @param dienblad
+     */
+    public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen) {
+        Persoon persoon1 = new Persoon();
+        Dienblad dienblad1 = new Dienblad(persoon1);
+        Artikel artikel1 = new Artikel("iets", 3);
+        Artikel artikel2 = new Artikel("nog iets", 3);
+        dienblad1.voegToe(artikel1);
+        dienblad1.voegToe(artikel2);
+        kassarij.sluitAchteraan(dienblad1);
+
+
     }
 }
