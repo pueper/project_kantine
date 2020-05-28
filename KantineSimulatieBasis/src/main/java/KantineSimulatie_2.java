@@ -139,20 +139,4 @@ public class KantineSimulatie {
 
         }
     }
-
-    /**In deze methode wordt een dienblad met artikelen in de kassarij geplaatst.
-     *
-     * @param dienblad
-     */
-    public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen) {
-        Persoon persoon1 = new Persoon(); //ook vanaf dienblad?
-        Dienblad dienblad1 = new Dienblad(persoon1); //vanaf dienblad
-        Artikel artikel1 = new Artikel("iets", 3); //iets met String[] artikelnaam
-        Artikel artikel2 = new Artikel("nog iets", 3); //iets met String[] artikelnaam
-        dienblad1.voegToe(artikel1);
-        dienblad1.voegToe(artikel2);
-        kassarij.sluitAchteraan(dienblad1);
-
-
-    }
 }
