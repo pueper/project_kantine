@@ -11,12 +11,12 @@ public class Dienblad {
      * Constructor zonder parameter
      */
     public Dienblad() {
-        ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
+        artikelen = new Stack<Artikel>();
     }
 
     //constructor met parameter klant (b)
     public Dienblad(Persoon klant) {
-        Stack<Artikel> artikelen = new Stack<Artikel>();
+        artikelen = new Stack<Artikel>();
         this.klant = klant;
     }
 
@@ -36,7 +36,7 @@ public class Dienblad {
      * @param artikel
      */
     public void voegToe(Artikel artikel) {
-        artikelen.add(artikel);
+        artikelen.push(artikel);
 
     }
 
