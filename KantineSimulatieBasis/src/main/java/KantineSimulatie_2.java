@@ -115,8 +115,9 @@ public class KantineSimulatie {
 
                 // maak persoon en dienblad aan, koppel ze
                 // en bedenk hoeveel artikelen worden gepakt
-                Persoon klant = new Persoon();
+                Persoon persoon = new Persoon();
                 Dienblad bestelling = new Dienblad(klant);
+                Klant.setKlant(persoon);
                 int aantalartikelen = 2;
 
                 // genereer de "artikelnummers", dit zijn indexen
