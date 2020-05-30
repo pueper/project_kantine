@@ -25,8 +25,8 @@ public class KantineSimulatie {
     private static double[] artikelprijzen = new double[] {1.50, 2.10, 1.65, 1.65};
 
     // minimum en maximum aantal artikelen per soort
-    private static final int MIN_ARTIKELEN_PER_SOORT = 10000;
-    private static final int MAX_ARTIKELEN_PER_SOORT = 20000;
+    private static final int MIN_ARTIKELEN_PER_SOORT = 10;
+    private static final int MAX_ARTIKELEN_PER_SOORT = 20;
 
     // minimum en maximum aantal personen per dag
     private static final int MIN_PERSONEN_PER_DAG = 50;
@@ -108,7 +108,7 @@ public class KantineSimulatie {
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = 10;
+            int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
 
             // laat de personen maar komen...
             for (int j = 0; j < aantalpersonen; j++) {
@@ -117,7 +117,7 @@ public class KantineSimulatie {
                 // en bedenk hoeveel artikelen worden gepakt
                 Persoon persoon = new Persoon();
                 Dienblad klant = new Dienblad(persoon);
-                int aantalartikelen = 2;
+                int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
