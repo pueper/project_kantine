@@ -16,7 +16,7 @@ public class Kantine {
        return kantineaanbod;
     }
 
-    public void setKantineaanbod(KantineAanbod kantineaanbod){
+    public void setKantineAanbod(KantineAanbod kantineaanbod){
         this.kantineaanbod = kantineaanbod;
     }
 
@@ -25,14 +25,12 @@ public class Kantine {
      * Artikelen aan en plaats deze op het dienblad. Tenslotte sluit de Persoon zich aan bij de rij
      * voor de kassa.
      */
-    public void loopPakSluitAan(Persoon persoon, String[] artikelnamen) {
-        Dienblad klant = new Dienblad();
-        klant.setKlant(persoon);
+    public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen) {
         for(String artikelnaam : artikelnamen){
-            Artikel.artikel = kantineaanbod.getArtikel(artikelnaam);
-            klant.voegToe(artikel);
+            Artikel artikel = kantineaanbod.getArtikel(artikelnaam);
+            dienblad.voegToe(artikel);
         }
-        kassarij.sluitAchteraan(klant);
+        kassarij.sluitAchteraan(dienblad);
     }
 
     /**
