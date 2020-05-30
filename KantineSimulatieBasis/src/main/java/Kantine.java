@@ -10,7 +10,6 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
-        //kantineaanbod = new KantineAanbod();
     }
 
     public KantineAanbod getKantineaanbod(){
