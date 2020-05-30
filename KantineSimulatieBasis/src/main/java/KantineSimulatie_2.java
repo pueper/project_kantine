@@ -14,6 +14,9 @@ public class KantineSimulatie {
     // aantal artikelen
     private static final int AANTAL_ARTIKELEN = 4;
 
+    //aantal dagen
+    public static final int DAGEN = 7;
+
     // artikelen
     private static final String[] artikelnamen =
             new String[] {"Koffie", "Broodje pindakaas", "Broodje kaas", "Appelsap"};
@@ -105,18 +108,20 @@ public class KantineSimulatie {
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = ... ;
+            int aantalpersonen = 10;
 
             // laat de personen maar komen...
             for (int j = 0; j < aantalpersonen; j++) {
 
                 // maak persoon en dienblad aan, koppel ze
                 // en bedenk hoeveel artikelen worden gepakt
-                int aantalartikelen = ... ;
+                Persoon klant = new Persoon();
+                Dienblad bestelling = new Dienblad(klant);
+                int aantalartikelen = 2;
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
-                array int[] tepakken = getRandomArray(
+                int[] tepakken = getRandomArray(
                     aantalartikelen, 0, AANTAL_ARTIKELEN-1);
 
                 // vind de artikelnamen op basis van
@@ -125,18 +130,34 @@ public class KantineSimulatie {
 
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
-
+                Kantine.loopPakSluitAan(klant, artikelen);
 
             }
 
             // verwerk rij voor de kassa
-
-            // druk de dagtotalen af en hoeveel personen binnen
-
-            // zijn gekomen
+            Kantine.verwerkRijVoorKassa();
+            // druk de dagtotalen af en hoeveel personen binnen zijn gekomen
+            System.out.println(Kassa.hoeveelheidGeldInKassa);
+            System.out.println(aantalpersonen);
 
             // reset de kassa voor de volgende dag
-
+            kantine.getKassa().resetKassa();
         }
+    }
+
+    /**
+     * Start een simulatie
+     */
+    public static void main(String[] args) {
+        int dagen;
+
+        if (args.length == 0) {
+            dagen = DAGEN;
+        } else {
+            dagen = Integer.parseInt(args[0]);
+        }
+
+        KantineSimulatie simulatie = new KantineSimulatie();
+        simulatie.simuleer(dagen);
     }
 }
