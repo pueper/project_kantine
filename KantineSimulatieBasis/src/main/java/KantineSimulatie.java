@@ -140,7 +140,7 @@ public class KantineSimulatie {
             System.out.println("Dag " + (i+1));
             // druk de dagtotalen af en hoeveel personen binnen zijn gekomen
             System.out.println("Dagtotaal: " + kantine.getKassa().hoeveelheidGeldInKassa());
-            System.out.println("Aantaal personen: " + aantalpersonen);
+            System.out.println("Aantal personen: " + aantalpersonen);
 
             // reset de kassa voor de volgende dag
             kantine.getKassa().resetKassa();
