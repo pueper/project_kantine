@@ -2,6 +2,9 @@ import java.util.*;
 
 public class KantineSimulatie {
 
+    // administratie
+    private Administratie administratie;
+
     // kantine
     private Kantine kantine;
 
@@ -43,6 +46,7 @@ public class KantineSimulatie {
     public KantineSimulatie() {
         kantine = new Kantine();
         random = new Random();
+       // administratie = new Administratie();
         int[] hoeveelheden =
                 getRandomArray(AANTAL_ARTIKELEN, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
         kantineaanbod = new KantineAanbod(artikelnamen, artikelprijzen, hoeveelheden);
@@ -132,7 +136,13 @@ public class KantineSimulatie {
                 // artikelen, sluit aan
                 kantine.loopPakSluitAan(klant, artikelen);
 
+                //dag omzet
+                //double dagOmzet = Administratie.berekenDagOmzet(kantine.getKassa().hoeveelheidGeldInKassa());
+
             }
+            //de functies van administratie
+            //int gemiddeldAantal = Administratie.berekenGemiddeldAantal(aantalArtikelen);
+           // double gemiddeldeOmzet = Administratie.berekenGemiddeldeOmzet(kantine.getKassa(),hoeveelheidGeldInKassa());
 
             // verwerk rij voor de kassa
             kantine.verwerkRijVoorKassa();
@@ -141,7 +151,6 @@ public class KantineSimulatie {
             // druk de dagtotalen af en hoeveel personen binnen zijn gekomen
             System.out.println("Dagtotaal: " + kantine.getKassa().hoeveelheidGeldInKassa());
             System.out.println("Aantal personen: " + aantalpersonen);
-
             // reset de kassa voor de volgende dag
             kantine.getKassa().resetKassa();
         }
