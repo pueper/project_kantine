@@ -46,7 +46,6 @@ public class Administratie {
      * @param omzet
      * @return array (7 elementen) met dagomzetten
      */
-
     public static double[] berekenDagOmzet(double[] omzet) {
         double[] temp = new double[DAYS_IN_WEEK];
         for(int i = 0; i < DAYS_IN_WEEK; i++) {
