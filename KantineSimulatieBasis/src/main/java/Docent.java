@@ -4,7 +4,15 @@ public class Docent extends Persoon{
     private String afdeling;
 
     /*
-     * constructor
+     * constructor zonder parameters
+     */
+    public Docent() {
+        afkorting = "lul";
+        afdeling = "onderwijs";
+    }
+
+    /*
+     * constructor met parameters
      */
     public Docent(int bsn, String voornaam, String achternaam, Datum geboortedatum, char geslacht, String afkorting, String afdeling) {
         super(bsn, voornaam, achternaam, geboortedatum, geslacht);

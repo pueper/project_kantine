@@ -9,6 +9,7 @@ public class Persoon {
     private Datum geboortedatum;
     private char geslacht;
     private String soort;
+    private Betaalwijze betaalwijze;
 
     public Persoon() {
         bsn = 0;
@@ -18,13 +19,12 @@ public class Persoon {
         geslacht = 'o';
     }
 
-    public Persoon(int bsn, String voornaam, String achternaam, Datum geboortedatum, char geslacht, String soort) {
+    public Persoon(int bsn, String voornaam, String achternaam, Datum geboortedatum, char geslacht) {
         this.bsn = bsn;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
         setGeslacht(geslacht);
-        setSoort();
 
     }
 
@@ -70,29 +70,6 @@ public class Persoon {
         return geboortedatum.getDatumAsString();
     }
 
-    /*
-     * setter voor soort klant
-     */
-    public void setSoort() {
-        int nummer = random.nextInt(100);
-        if (nummer < 89) {
-            soort = "student";
-        } else if (nummer == 90) {
-            soort = "kantinemedewerker";
-        } else {
-            soort = "docent";
-        }
-    }
-
-    /*
-     * getter voor de soort klant
-     *
-     * @return soort
-     */
-    public String getSoort(){
-        return soort;
-    }
-
 
     public void setGeboortedatum(Datum geboortedatum) {
         this.geboortedatum = geboortedatum;
@@ -122,8 +99,15 @@ public class Persoon {
         this.bsn = bsn;
     }
 
+    public Betaalwijze getBetaalwijze() {
+        return betaalwijze;
+    }
+
+    public void setBetaalwijze(Betaalwijze betaalwijze) {
+        this.betaalwijze = betaalwijze;
+    }
+
     public String toString() {
-        return bsn + ", " + voornaam + " " + achternaam + ", " + getGeboortedatum() + ", " + getGeslacht()
-                + ", "+ getSoort();
+        return bsn + ", " + voornaam + " " + achternaam + ", " + getGeboortedatum() + ", " + getGeslacht();
     }
 }

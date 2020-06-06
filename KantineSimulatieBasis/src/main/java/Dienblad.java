@@ -45,8 +45,8 @@ public class Dienblad {
      *
      * @return De artikelen
      */
-    public Stack<Artikel> getArtikelen() {
-        return artikelen;
+    public Iterator<Artikel> getArtikelen() {
+        return artikelen.iterator();
     }
 }
 

@@ -4,7 +4,15 @@ public class Student extends Persoon{
     private String studierichting;
 
     /*
-     * constructor
+     * constructor zonder parameters
+     */
+    public Student() {
+        studentNummer = 0;
+        studierichting = "onderwijs";
+    }
+
+    /*
+     * constructor met parameters
      */
     public Student(int bsn, String voornaam, String achternaam, Datum geboortedatum, char geslacht, int studentNummer, String studierichting) {
         super(bsn, voornaam, achternaam, geboortedatum, geslacht);

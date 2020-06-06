@@ -1,4 +1,6 @@
+import javax.swing.*;
 import java.util.Iterator;
+
 public class Kassa {
 
     private double geldInKassa;
@@ -21,11 +23,23 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
-        totaalArtikelen = totaalArtikelen + klant.getArtikelen().size();
-        Iterator<Artikel> it = klant.getArtikelen().iterator();
+        Iterator<Artikel> it = klant.getArtikelen();
+        double uitkomst = 0;
         while(it.hasNext()){
             Artikel a = it.next();
-            geldInKassa = geldInKassa + a.getPrijs();
+            uitkomst += a.getPrijs();
+        }
+
+        if(!klant.getKlant().getBetaalwijze().betaal(uitkomst)){
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Betaling mislukt", "Alert", JOptionPane.WARNING_MESSAGE);
+        } else {
+            it = klant.getArtikelen();
+            while(it.hasNext()){
+                Artikel a = it.next();
+                geldInKassa = geldInKassa + a.getPrijs();
+                totaalArtikelen = totaalArtikelen + 1;
+            }
         }
     }
 
@@ -35,7 +49,7 @@ public class Kassa {
      *
      * @return aantal artikelen
      */
-    public int aantalArtikelen(Dienblad dienblad) {
+    public int aantalArtikelen() {
         return totaalArtikelen;
     }
 
