@@ -2,6 +2,9 @@ import java.util.*;
 
 public class KantineSimulatie {
 
+    // administratie
+    private Administratie administratie;
+
     // kantine
     private Kantine kantine;
 
@@ -43,6 +46,7 @@ public class KantineSimulatie {
     public KantineSimulatie() {
         kantine = new Kantine();
         random = new Random();
+       // administratie = new Administratie();
         int[] hoeveelheden =
                 getRandomArray(AANTAL_ARTIKELEN, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
         kantineaanbod = new KantineAanbod(artikelnamen, artikelprijzen, hoeveelheden);
@@ -106,17 +110,28 @@ public class KantineSimulatie {
     public void simuleer(int dagen) {
         // for lus voor dagen
         for(int i = 0; i < dagen; i++) {
-
+            //ArrayList personen
+            ArrayList(Persoon) klanten = new ArrayList<>();
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
+            int aantalPersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
 
-            // laat de personen maar komen...
-            for (int j = 0; j < aantalpersonen; j++) {
+            for(int j = 0; j > aantalPersonen; j++){
+                int r = getRandomValue(1, AANTAL_STUDENTEN + AANTAL_DOCENTEN + AANTAL_KANTINEMEDEWERKERS);
 
-                // maak persoon en dienblad aan, koppel ze
-                // en bedenk hoeveel artikelen worden gepakt
-                Persoon persoon = new Persoon();
-                Dienblad klant = new Dienblad(persoon);
+                if(r <= AANTAL_KANTINEMEDEWERKERS){
+                    klanten.add(new KantineMedewerker());
+                }
+                else if(r <= AANTAL_STUDENTEN + AANTAL_KANTINEMEDEWERKERS){
+                    klanten.add(new Student());
+                }
+                else if(r <= AANTAL_DOCENTEN + AANTAL_STUDENTEN + AANTAL_KANTINEMEDEWERKERS){
+                    klanten.add(new Docent());
+                }
+            }
+
+            //pak een persoon uit de arraylist, koppel er een dienblad aam
+            for (Persoon klant : klanten){
+                Dienblad dienblad = new Dienblad(klant);
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
 
                 // genereer de "artikelnummers", dit zijn indexen
@@ -130,18 +145,22 @@ public class KantineSimulatie {
 
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
-                kantine.loopPakSluitAan(klant, artikelen);
+                kantine.loopPakSluitAan(dienblad, artikelen);
 
             }
 
             // verwerk rij voor de kassa
             kantine.verwerkRijVoorKassa();
+
+            verkochteArtikelenDagelijks[i] = kantine.getKassa().aantalArtikelen();
+            omzetDagelijks[i] = kantine.getKassa().hoeveelheidGeldInKassa();
+
             //dagaanduiding
             System.out.println("Dag " + (i+1));
             // druk de dagtotalen af en hoeveel personen binnen zijn gekomen
-            System.out.println("Dagtotaal: " + kantine.getKassa().hoeveelheidGeldInKassa());
+            System.out.println("Aantal verkochte artikelen: " + verkochteArtikelenDagelijks[i]);
             System.out.println("Aantal personen: " + aantalpersonen);
-
+            System.out.println("De omzet was: " + omzetDagelijks[i]);
             // reset de kassa voor de volgende dag
             kantine.getKassa().resetKassa();
         }
