@@ -37,6 +37,7 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder{
     public void setKassaDienst(boolean kassaDienst) {
         this.kassaDienst = kassaDienst;
     }
+    public boolean heeftEenPas(){return true;}
 
     public double geefKortingsPercentage(){
         return 0.35;

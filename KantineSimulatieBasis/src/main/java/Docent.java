@@ -37,6 +37,9 @@ public class Docent extends Persoon implements KortingskaartHouder{
         this.afdeling = afdeling;
     }
 
+    public boolean heeftEenPas(){
+        return true;
+    }
 
     public double geefKortingsPercentage(){
         return 0.25;

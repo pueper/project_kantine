@@ -37,4 +37,7 @@ public class Student extends Persoon{
     public void setStudierichting(String studierichting) {
         this.studierichting = studierichting;
     }
+
+    public boolean heeftEenPas(){return false;}
+
 }

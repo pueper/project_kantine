@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.Iterator;
 
-public class Kassa {
+public class Kassa{
 
     private double geldInKassa;
     private int totaalArtikelen;
@@ -69,6 +69,13 @@ public class Kassa {
         return geldInKassa;
 
     }
+
+    public double geefKorting(Dienblad klant){
+        double korting = klant.geefKortingsPercentage();
+        return korting;
+    }
+
+
 
     /**
      * reset de waarden van het aantal gepasseerde artikelen en de totale hoeveelheid geld in de
