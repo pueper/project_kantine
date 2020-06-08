@@ -26,7 +26,8 @@
   <component name="ChangeListManager">
     <list default="true" id="21febe36-74f5-41a3-8421-603c1d78e638" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineSimulatie.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineSimulatie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Docent.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Docent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineMedewerker.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineMedewerker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,9 +95,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589718329994" />
-    <state x="208" y="31" key="new project wizard" timestamp="1589719366964">
+    <state x="208" y="31" key="new project wizard" timestamp="1591609365898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="208" y="31" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1589719366964" />
+    <state x="208" y="31" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1591609365898" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1591601319490">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1591601319490" />
   </component>
 </project>
