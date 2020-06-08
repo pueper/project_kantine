@@ -8,7 +8,6 @@ public class Persoon {
     private String achternaam;
     private Datum geboortedatum;
     private char geslacht;
-    private String soort;
     private Betaalwijze betaalwijze;
 
     public Persoon() {
