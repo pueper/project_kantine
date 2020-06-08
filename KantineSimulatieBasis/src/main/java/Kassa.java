@@ -22,7 +22,7 @@ public class Kassa {
      *
      * @param klant die moet afrekenen
      */
-    public void rekenAf(Dienblad klant) {
+    public void rekenAf(Dienblad klant) throws TeWeinigGeldException{
         Iterator<Artikel> it = klant.getArtikelen();
         double uitkomst = 0;
         while(it.hasNext()){
@@ -30,16 +30,19 @@ public class Kassa {
             uitkomst += a.getPrijs();
         }
 
-        if(!klant.getKlant().getBetaalwijze().betaal(uitkomst)){
-            JFrame f = new JFrame();
-            JOptionPane.showMessageDialog(f, "Betaling mislukt", "Alert", JOptionPane.WARNING_MESSAGE);
-        } else {
+        try {
+            klant.getKlant().getBetaalwijze().betaal(uitkomst);
             it = klant.getArtikelen();
             while(it.hasNext()){
                 Artikel a = it.next();
                 geldInKassa = geldInKassa + a.getPrijs();
                 totaalArtikelen = totaalArtikelen + 1;
             }
+        } catch (TeWeinigGeldException e){
+            /*JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Betaling mislukt", "Alert", JOptionPane.WARNING_MESSAGE);*/
+            e.setNaam(klant.getKlant().getVolledigeNaam());
+            System.out.println(e);
         }
     }
 

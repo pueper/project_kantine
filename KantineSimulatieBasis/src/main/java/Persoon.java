@@ -91,6 +91,10 @@ public class Persoon {
         this.voornaam = voornaam;
     }
 
+    public String getVolledigeNaam() {
+        return voornaam + achternaam;
+    }
+
     public int getBsn() {
         return bsn;
     }

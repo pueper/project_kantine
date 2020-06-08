@@ -44,6 +44,13 @@ public class KantineSimulatie {
     private static final int AANTAL_DOCENTEN = 10;
     private static final int AANTAL_KANTINEMEDEWERKERS = 1;
 
+    //saldo en kredietlimiet van personen
+    private static final int MIN_SALDO = 5;
+    private static final int MAX_SALDO = 100;
+    private static final int MIN_KREDIET = 0;
+    private static final int MAX_KREDIET = 100;
+
+
     /**
      * Constructor
      *
@@ -116,6 +123,8 @@ public class KantineSimulatie {
         double[] omzet = new double[dagen];
         // for lus voor dagen
         for(int i = 0; i < dagen; i++) {
+            //dagaanduiding
+            System.out.println("Dag " + (i+1));
             //ArrayList personen
             ArrayList<Persoon> klanten = new ArrayList<>();
             // bedenk hoeveel personen vandaag binnen lopen
@@ -137,9 +146,20 @@ public class KantineSimulatie {
 
             //pak een persoon uit de arraylist, koppel er een dienblad aam
             for (Persoon klant : klanten){
-                Betaalwijze temp = new Contant();
-                temp.setSaldo(100);
-                klant.setBetaalwijze(temp);
+                //betaalwijze voor persoon instellen
+                int rando = getRandomValue(1, 2);
+                Betaalwijze type;
+                if(rando == 1){
+                    Contant temp = new Contant();
+                    type = temp;
+                } else {
+                    Pinpas temp = new Pinpas();
+                    temp.setKredietLimiet(getRandomValue(MIN_KREDIET, MAX_KREDIET));
+                    type = temp;
+                }
+
+                type.setSaldo(getRandomValue(MIN_SALDO, MAX_SALDO));
+                klant.setBetaalwijze(type);
                 Dienblad dienblad = new Dienblad(klant);
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
 
@@ -159,17 +179,21 @@ public class KantineSimulatie {
             }
 
             // verwerk rij voor de kassa
-            kantine.verwerkRijVoorKassa();
+            try {
+                kantine.verwerkRijVoorKassa();
+            }
+            catch(TeWeinigGeldException e) {
+            }
 
             int verkochteArtikelenDagelijks = kantine.getKassa().aantalArtikelen();
             double omzetDagelijks = kantine.getKassa().hoeveelheidGeldInKassa();
 
-            //dagaanduiding
-            System.out.println("Dag " + (i+1));
+
             // druk de dagtotalen af en hoeveel personen binnen zijn gekomen
             System.out.println("Aantal verkochte artikelen: " + verkochteArtikelenDagelijks);
             System.out.println("Aantal personen: " + aantalPersonen);
             System.out.println("De omzet was: " + omzetDagelijks);
+            System.out.println();
             // noteer dagomzet
             omzet[i] = omzetDagelijks;
             // reset de kassa voor de volgende dag
@@ -177,7 +201,6 @@ public class KantineSimulatie {
         }
         double[] dagomzet = Administratie.berekenDagOmzet(omzet);
         System.out.println();
-        System.out.println("Gemiddelde omzet: " + Administratie.berekenGemiddeldeOmzet(omzet));
         System.out.println("Maandagen: " + dagomzet[0]);
         System.out.println("Dinsdagen: " + dagomzet[1]);
         System.out.println("Woensdagen: " + dagomzet[2]);
@@ -185,6 +208,8 @@ public class KantineSimulatie {
         System.out.println("Vrijdagen: " + dagomzet[4]);
         System.out.println("Zaterdagen: " + dagomzet[5]);
         System.out.println("Zondagen: " + dagomzet[6]);
+        System.out.println("Gemiddelde omzet: " + Administratie.berekenGemiddeldeOmzet(omzet));
+
     }
 
     /**
