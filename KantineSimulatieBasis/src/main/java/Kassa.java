@@ -73,11 +73,13 @@ public class Kassa{
 
     public double geefKorting(Persoon klant){
         if (klant instanceof Docent){
-            double korting = Docent.geefKortingsPercentage();
+            Docent docent = new Docent();
+            double korting = docent.geefKortingsPercentage();
             return korting;
         }
         else if (klant instanceof KantineMedewerker){
-            double korting = KantineMedewerker.geefKortingsPercentage();
+            KantineMedewerker kantineMedewerker = new KantineMedewerker();
+            double korting = kantineMedewerker.geefKortingsPercentage();
             return korting;
         }
         else
