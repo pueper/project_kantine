@@ -29,15 +29,11 @@ public class Kassa{
             Artikel a = it.next();
             uitkomst += a.getPrijs();
         }
-
+        uitkomst = uitkomst * (1-geefKorting(klant));
         try {
             klant.getKlant().getBetaalwijze().betaal(uitkomst);
-            it = klant.getArtikelen();
-            while(it.hasNext()){
-                Artikel a = it.next();
-                geldInKassa = geldInKassa + a.getPrijs();
-                totaalArtikelen = totaalArtikelen + 1;
-            }
+            geldInKassa += uitkomst;
+            totaalArtikelen += klant.getAantalArtikelen();
         } catch (TeWeinigGeldException e){
             /*JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f, "Betaling mislukt", "Alert", JOptionPane.WARNING_MESSAGE);*/
@@ -71,7 +67,8 @@ public class Kassa{
     }
 
 
-    public double geefKorting(Persoon klant){
+    public double geefKorting(Dienblad dienblad){
+        Persoon klant = dienblad.getKlant();
         if (klant instanceof Docent){
             Docent docent = new Docent();
             double korting = docent.geefKortingsPercentage();
