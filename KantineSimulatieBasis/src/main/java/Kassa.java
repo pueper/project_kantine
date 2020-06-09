@@ -70,12 +70,20 @@ public class Kassa{
 
     }
 
+
     public double geefKorting(Persoon klant){
-        if(klant.isEenKortingskaartHouder() == true) {
-            double korting = klant.geefKortingsPercentage();
+        if (klant instanceof Docent){
+            double korting = Docent.geefKortingsPercentage();
             return korting;
         }
+        else if (klant instanceof KantineMedewerker){
+            double korting = KantineMedewerker.geefKortingsPercentage();
+            return korting;
+        }
+        else
+            return 0.00;
     }
+
 
 
 
