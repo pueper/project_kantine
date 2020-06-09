@@ -37,7 +37,7 @@ public class Docent extends Persoon implements KortingskaartHouder{
         this.afdeling = afdeling;
     }
 
-    public boolean heeftEenPas(){
+    public boolean isEenKortingskaartHouder(){
         return true;
     }
 

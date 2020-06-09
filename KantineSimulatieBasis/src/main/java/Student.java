@@ -38,6 +38,6 @@ public class Student extends Persoon{
         this.studierichting = studierichting;
     }
 
-    public boolean heeftEenPas(){return false;}
+    public boolean isEenKortingskaartHouder(){return false;}
 
 }

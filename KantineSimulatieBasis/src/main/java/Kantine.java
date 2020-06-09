@@ -38,6 +38,7 @@ public class Kantine {
      */
     public void verwerkRijVoorKassa() throws TeWeinigGeldException{
         while (kassarij.erIsEenRij()) {
+            kassa.geefKorting(kassarij.eerstePersoonInRij());
             kassa.rekenAf(kassarij.eerstePersoonInRij());
         }
     }

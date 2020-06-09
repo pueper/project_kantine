@@ -70,9 +70,11 @@ public class Kassa{
 
     }
 
-    public double geefKorting(Dienblad klant){
-        double korting = klant.geefKortingsPercentage();
-        return korting;
+    public double geefKorting(Persoon klant){
+        if(klant.isEenKortingskaartHouder() == true) {
+            double korting = klant.geefKortingsPercentage();
+            return korting;
+        }
     }
 
 
