@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+    xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="JPAVoorbeeld">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>nl.hanze.jpa.Student</class>
+        <class>nl.hanze.jpa.StudieInschrijving</class>
+        <class>nl.hanze.jpa.Telefoon</class>
+        <properties>
+            <!-- The JDBC driver of your database -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+
+            <!-- PostgreSQL JDBC driver example -->
+            <!--
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            -->
+
+            <!-- SQLite3 driver example -->
+            <!--
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLiteDialect" />
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
+            -->
+
+            <!-- MySQL JDBC URL to the database instance -->
+            <property name="javax.persistence.jdbc.url" value="http://localhost/phpmyadmin/db_sql.php?db=jpavoorbeeld" />
+
+            <!-- PostgreSQL JDBC connection url example -->
+            <!--
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jpavoorbeeld" />
+            -->
+
+            <!-- SQLite3 JDBC connection url example -->
+            <!-- On file -->
+            <!--
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:jpavoorbeeld.db"/>
+            -->
+            <!-- Or in memory -->
+            <!--
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite::memory:" />
+            -->
+
+            <!-- The database username -->
+            <!-- VERVANG DEZE WAARDEN MET DE GELDENDE WAARDEN OP JE EIGEN SYSTEEM -->
+            <property name="javax.persistence.jdbc.user" value="user" />
+
+            <!-- The database password -->
+            <!-- VERVANG DEZE WAARDEN MET DE GELDENDE WAARDEN OP JE EIGEN SYSTEEM -->
+            <property name="javax.persistence.jdbc.password" value="password" />
+
+            <property name="hibernate.connection.charSet" value="UTF-8" />
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+        </properties>
+    </persistence-unit>
+</persistence>
