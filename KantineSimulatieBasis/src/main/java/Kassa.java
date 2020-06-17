@@ -27,13 +27,34 @@ public class Kassa{
         double uitkomst = 0;
         while(it.hasNext()){
             Artikel a = it.next();
+            //if(a == dagaanbieding) {
+                //double prijs = a.getPrijs() * 0.8;
+                //uikomst += prijs;
+            //}
+            //else{
             uitkomst += a.getPrijs();
+            //}
         }
-        uitkomst = uitkomst * (1-geefKorting(klant));
         try {
+            /*
+            if (klant instanceof Docent){
+                Docent docent = new Docent();
+                double korting = docent.geefKortingsPercentage();
+                uitkomst = uitkomst * 0.75;
+            }
+            else if (klant instanceof KantineMedewerker){
+                KantineMedewerker kantineMedewerker = new KantineMedewerker();
+                double korting = kantineMedewerker.geefKortingsPercentage();
+                uitkomst = uitkomst* 0.65;
+            }
+            else{
+            uitkomst = uitkomst;
+            }
+             */
             klant.getKlant().getBetaalwijze().betaal(uitkomst);
             geldInKassa += uitkomst;
             totaalArtikelen += klant.getAantalArtikelen();
+
         } catch (TeWeinigGeldException e){
             /*JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f, "Betaling mislukt", "Alert", JOptionPane.WARNING_MESSAGE);*/
@@ -65,24 +86,6 @@ public class Kassa{
         return geldInKassa;
 
     }
-
-
-    public double geefKorting(Dienblad dienblad){
-        Persoon klant = dienblad.getKlant();
-        if (klant instanceof Docent){
-            Docent docent = new Docent();
-            double korting = docent.geefKortingsPercentage();
-            return korting;
-        }
-        else if (klant instanceof KantineMedewerker){
-            KantineMedewerker kantineMedewerker = new KantineMedewerker();
-            double korting = kantineMedewerker.geefKortingsPercentage();
-            return korting;
-        }
-        else
-            return 0.00;
-    }
-
 
 
 

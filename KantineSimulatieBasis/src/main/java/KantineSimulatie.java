@@ -162,6 +162,7 @@ public class KantineSimulatie {
                 klant.setBetaalwijze(type);
                 Dienblad dienblad = new Dienblad(klant);
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
+                int dagaanbieding = getRandomValue(0,aantalartikelen);
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen

@@ -2,11 +2,13 @@ public class Artikel {
     //aanmaak velden
     private String naam;
     private double prijs;
+    private double korting;
 
     //constructor met parameter C
-    public Artikel(String naam, double prijs){
+    public Artikel(String naam, double prijs, double korting){
         this.naam = naam;
         this.prijs = prijs;
+        this.korting = korting;
     }
 
     //constructor zonder parameter D
@@ -24,6 +26,8 @@ public class Artikel {
         return prijs;
     }
 
+    public double getKorting(){return korting;}
+
     public void setNaam(String newNaam){
         this.naam = newNaam;
     }
@@ -32,9 +36,12 @@ public class Artikel {
         this.prijs = newPrijs;
     }
 
+    public void setKorting(double newKorting){this.korting = newKorting;}
+
     public String toString() {
         return naam + ", " + prijs;
     }
+
 }
 
 //Declaratie : Het opzetten van de variabele, het type en de naam van de variabele voor de eerste keer weergeven
