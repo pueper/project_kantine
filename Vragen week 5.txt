@@ -1,0 +1,55 @@
+Week 5 
+
+Opdracht 1 
+
+Zou je al iets kunnen vertellen over het doel van de annotaties @Id, @GeneratedValue en @Column? 
+
+	Id lijkt een identificatie te zijn en is dus waarschijnlijk de primary key van een tabel/klasse 
+
+	Generatedvalue is betekent waarschijnlijk dat de kolom een gegenereerde waarde krijgt in plaats van een waarde die ingevuld is. 
+	
+	Column is een kolom voor de tabel die gevuld wordt met de waarde die de variabele die daarbij hoort heeft gekregen. 
+
+ 
+
+Een viertal tabellen zullen nu in de database zijn aangemaakt, welke zijn deze? 
+	
+	Student, StudentKaart, StudieInschrijving, Telefoon 
+
+ 
+
+Opdracht 2 
+
+a. Het attribuut telefoons in de klasse Student is geannoteerd met @OneToMany. Waarom zou hier @OneToMany en niet @OneToOne zijn gebruikt? 
+
+	Bij @OneToOne is er 1 relatie tussen een telefoon en een student, dus een student heeft dan 1 telefoonnummer en 1 telefoonnummer is verbonden aan 1 student, echter kan een student meerdere telefoonnummers hebben, dan is @OneToMany handiger. 
+
+b. Het attribuut studies in de klasse Student is ook geannoteerd met @OneToMany, dit omdat een student natuurlijk bij meerdere studies ingeschreven kan staan. In tegenstelling tot telefoons wordt hier geen @JoinTable annotatie gebruikt. 
+
+• Hoe wordt het verschil zichtbaar in de database? Let hier op de tabellen die zijn aangemaakt en de velden in de tabellen voor een Studenten StudieInschrijving.  
+
+	Bij gebruik van @JoinTable worden de onderlinge relaties intact gehouden, als dit dus niet gebruikt wordt zijn de eerder aangemaakte relaties weg. 
+
+• Zou je een nadeel kunnen bedenken waarom voor de relatie Studenten StudieInschrijving via studies geen @JoinTable is gebruikt?  
+
+	De relatie tussen de student en de inschrijving is dan weg, het is dan moeilijk om te traceren welke student bij welke inschrijving hoort. Dit kan ertoe lijden dat een student bij een verkeerde studie terecht komt. 
+
+c. In de klasse StudieInschrijving is het attribuut student met @ManyToOne geannoteerd. Beschrijf hoe deze relatie in de database zichtbaar wordt.  
+
+	Veel studenten, ingeschreven bij dezelfde studie, dus de many is de studenten to one (de studie inschrijving) 
+
+d. De klasse StudentKaart is geannoteerd met @Embeddable en het attribuut kaart in de klasse Student met @Embedded.  
+
+• Waar vind je een StudentKaart terug in de database? 
+
+	In de klasse student 
+
+Wat zou je hieruit kunnen afleiden met betrekking tot het gebruik en de functie van @Embeddable en @Embedded? 
+
+	@embeddable geeft aan dat een deel van de database opgenomen kan worden door een ander deel. @embedded geeft aan dat een deel van de database in een ander deel gestopt wordt (geëmbed) 
+
+Opdracht 3 
+
+Vooruitkijkend op week 6, kan je voor de kantine simulatie een situatie bedenken waar je dit patroon zou kunnen toepassen? 
+
+	Bij betalen, je betaalt of alles wat je moet betalen, of je betaalt niks. Je kunt niet maar een deel van je bestelling betalen. 
