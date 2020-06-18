@@ -1,4 +1,8 @@
 import java.util.*;
+import javax.persistence.Persistence;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 
 public class KantineSimulatie {
 
@@ -13,6 +17,10 @@ public class KantineSimulatie {
 
     // random generator
     private Random random;
+
+    // entitymanager
+    private EntityManager manager;
+
 
     // aantal artikelen
     private static final int AANTAL_ARTIKELEN = 4;
@@ -49,6 +57,10 @@ public class KantineSimulatie {
     private static final int MAX_SALDO = 100;
     private static final int MIN_KREDIET = 0;
     private static final int MAX_KREDIET = 100;
+
+    // entitymanagerfactory
+    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY =
+            Persistence.createEntityManagerFactory("KantineSimulatie");
 
 
     /**
@@ -226,5 +238,17 @@ public class KantineSimulatie {
 
         KantineSimulatie simulatie = new KantineSimulatie();
         simulatie.simuleer(dagen);
+    }
+
+    /**
+     * methode runVoorbeeld uit jpavoorbeel-project
+     */
+    public void runVoorbeeld() {
+        manager = ENTITY_MANAGER_FACTORY.createEntityManager();
+
+        // transactions omitted
+
+        manager.close();
+        ENTITY_MANAGER_FACTORY.close();
     }
 }

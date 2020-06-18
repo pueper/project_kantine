@@ -14,7 +14,7 @@ Zou je al iets kunnen vertellen over het doel van de annotaties @Id, @GeneratedV
 
 Een viertal tabellen zullen nu in de database zijn aangemaakt, welke zijn deze? 
 	
-	Student, StudentKaart, StudieInschrijving, Telefoon 
+	Student, Student_telefoon, Studie, Telefoon 
 
  
 
