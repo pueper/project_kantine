@@ -139,6 +139,12 @@ public class KantineSimulatie {
             System.out.println("Dag " + (i+1));
             //ArrayList personen
             ArrayList<Persoon> klanten = new ArrayList<>();
+
+            //ArrayList bonus
+            int dagaanbieding = getRandomValue(0,aantalartikelen);
+            ArrayList bonus = new ArrayList();
+            bonus.add(dagaanbieding);
+
             // bedenk hoeveel personen vandaag binnen lopen
             int aantalPersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
 
@@ -174,7 +180,6 @@ public class KantineSimulatie {
                 klant.setBetaalwijze(type);
                 Dienblad dienblad = new Dienblad(klant);
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
-                int dagaanbieding = getRandomValue(0,aantalartikelen);
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
