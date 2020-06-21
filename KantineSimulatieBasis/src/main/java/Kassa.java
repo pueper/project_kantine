@@ -27,13 +27,13 @@ public class Kassa{
         double uitkomst = 0;
         while(it.hasNext()){
             Artikel a = it.next();
-            //if(a == dagaanbieding) {
-                //double prijs = a.getPrijs() * 0.8;
-                //uikomst += prijs;
-            //}
-            //else{
+            if(KantineSimulatie.bonus.contains(a)) {
+                double prijs = a.getPrijs() * 0.8;
+                uikomst += prijs;
+            }
+            else{
             uitkomst += a.getPrijs();
-            //}
+            }
         }
         try {
             /*
