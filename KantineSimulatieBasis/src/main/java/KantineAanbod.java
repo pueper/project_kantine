@@ -30,18 +30,20 @@ public class KantineAanbod {
         ArrayList<Artikel> huidigeVoorraad = aanbod.get(productnaam);
         int startHoeveelheid = startVoorraad.get(productnaam);
         int huidigeHoeveelheid = huidigeVoorraad.size();
+        double korting = huidigeVoorraad.get(0).getKorting();
         double prijs = prijzen.get(productnaam);
         for (int j = huidigeHoeveelheid; j < startHoeveelheid; j++) {
-            huidigeVoorraad.add(new Artikel(productnaam, prijs));
+            huidigeVoorraad.add(new Artikel(productnaam, prijs, korting));
         }
         aanbod.put(productnaam, huidigeVoorraad);
     }
 
     /*
-     * Private methode om de lijst van artikelen te krijgen op basis van de naam van het artikel.
+     * methode om de lijst van artikelen te krijgen op basis van de naam van het artikel.
+     * wordt gebruikt om korting in te stellen
      * Retourneert null als artikel niet bestaat.
      */
-    private ArrayList<Artikel> getArrayList(String productnaam) {
+    public ArrayList<Artikel> getArrayList(String productnaam) {
         return aanbod.get(productnaam);
     }
 

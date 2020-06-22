@@ -1,5 +1,13 @@
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "Artikel")
 public class Artikel {
     //aanmaak velden
+    @Id
     private String naam;
     private double prijs;
     private double korting;
@@ -11,10 +19,11 @@ public class Artikel {
         this.korting = korting;
     }
 
-    //constructor zonder parameter D
-    public Artikel(){
-        naam = "Naam";
-        prijs = 2;
+    //constructor zonder parameter korting
+    public Artikel(String naam, double prijs){
+        this.naam = naam;
+        this.prijs = prijs;
+        korting = 0;
     }
 
     //getters en setters E

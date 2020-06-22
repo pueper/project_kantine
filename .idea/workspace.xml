@@ -21,7 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="21febe36-74f5-41a3-8421-603c1d78e638" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Artikel.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Artikel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Factuur.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Factuur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/FactuurRegel.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/FactuurRegel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kantine.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kantine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineAanbod.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineAanbod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineSimulatie.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineSimulatie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kassa.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kassa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +55,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/Projects/testproject/JPAVoorbeeld(1)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.quicklists" />
   </component>
@@ -96,6 +105,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589718089744" />
+    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1592739429386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1592739429386" />
     <state x="448" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1592329074539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -108,15 +121,32 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1589706822855" />
-    <state x="686" y="211" key="FileChooserDialogImpl" timestamp="1592642113500">
+    <state x="686" y="211" key="FileChooserDialogImpl" timestamp="1592738891824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589719364273" />
-    <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592642113500" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1589718329994">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592738891824" />
+    <state width="914" height="283" key="GridCell.Tab.0.bottom" timestamp="1592839380386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592839380386" />
+    <state width="914" height="283" key="GridCell.Tab.0.center" timestamp="1592839380385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="283" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592839380385" />
+    <state width="914" height="283" key="GridCell.Tab.0.left" timestamp="1592839380385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="283" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592839380385" />
+    <state width="914" height="283" key="GridCell.Tab.0.right" timestamp="1592839380385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="283" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592839380385" />
+    <state x="346" y="72" key="SettingsEditor" timestamp="1592738952708">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589718329994" />
+    <state x="346" y="72" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592738952708" />
     <state x="208" y="31" key="new project wizard" timestamp="1592303757796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -125,5 +155,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1591691037596" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592829018133">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592829018133" />
   </component>
 </project>

@@ -1,3 +1,5 @@
+import org.hibernate.Session;
+
 import java.util.*;
 import javax.persistence.Persistence;
 import javax.persistence.EntityManager;
@@ -17,9 +19,6 @@ public class KantineSimulatie {
 
     // random generator
     private Random random;
-
-    // entitymanager
-    private EntityManager manager;
 
 
     // aantal artikelen
@@ -61,6 +60,8 @@ public class KantineSimulatie {
     // entitymanagerfactory
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY =
             Persistence.createEntityManagerFactory("KantineSimulatie");
+    // entitymanager
+    private EntityManager manager;
 
 
     /**
@@ -68,14 +69,8 @@ public class KantineSimulatie {
      *
      */
     public KantineSimulatie() {
-        kantine = new Kantine();
         random = new Random();
        // administratie = new Administratie();
-        int[] hoeveelheden =
-                getRandomArray(AANTAL_ARTIKELEN, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
-        kantineaanbod = new KantineAanbod(artikelnamen, artikelprijzen, hoeveelheden);
-
-        kantine.setKantineAanbod(kantineaanbod);
     }
 
     /**
@@ -132,6 +127,14 @@ public class KantineSimulatie {
      * @param dagen
      */
     public void simuleer(int dagen) {
+        //kantine maken
+        manager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        kantine = new Kantine(manager);
+        int[] hoeveelheden =
+                getRandomArray(AANTAL_ARTIKELEN, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
+        kantineaanbod = new KantineAanbod(artikelnamen, artikelprijzen, hoeveelheden);
+
+        kantine.setKantineAanbod(kantineaanbod);
         double[] omzet = new double[dagen];
         // for lus voor dagen
         for(int i = 0; i < dagen; i++) {
@@ -141,9 +144,12 @@ public class KantineSimulatie {
             ArrayList<Persoon> klanten = new ArrayList<>();
 
             //ArrayList bonus
-            int dagaanbieding = getRandomValue(0,aantalartikelen);
-            ArrayList bonus = new ArrayList();
-            bonus.add(dagaanbieding);
+            int dagaanbiedingIndex = getRandomValue(0,AANTAL_ARTIKELEN-1);
+            String dagaanbieding = artikelnamen[dagaanbiedingIndex];
+            ArrayList<Artikel> artikelGroep = kantineaanbod.getArrayList(dagaanbieding);
+            for(Artikel artikel: artikelGroep) {
+                artikel.setKorting(0.2 * artikel.getPrijs());
+            }
 
             // bedenk hoeveel personen vandaag binnen lopen
             int aantalPersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
@@ -217,6 +223,8 @@ public class KantineSimulatie {
             // reset de kassa voor de volgende dag
             kantine.getKassa().resetKassa();
         }
+        /*
+        //omzettotalen en gemiddelde omzet
         double[] dagomzet = Administratie.berekenDagOmzet(omzet);
         System.out.println();
         System.out.println("Maandagen: " + dagomzet[0]);
@@ -227,7 +235,18 @@ public class KantineSimulatie {
         System.out.println("Zaterdagen: " + dagomzet[5]);
         System.out.println("Zondagen: " + dagomzet[6]);
         System.out.println("Gemiddelde omzet: " + Administratie.berekenGemiddeldeOmzet(omzet));
-
+        */
+        Session session = manager.unwrap(Session.class);
+        List<Factuur> facturen = session.createQuery("from Factuur").list();
+        double totaleOmzet = 0;
+        double totaleKorting = 0;
+        for(Factuur factuur : facturen) {
+            totaleOmzet += factuur.getTotaal();
+            totaleKorting += factuur.getKorting();
+        }
+        System.out.println("Omzet = " + totaleOmzet + ", korting = " + totaleKorting);
+        manager.close();
+        ENTITY_MANAGER_FACTORY.close();
     }
 
     /**
@@ -244,17 +263,5 @@ public class KantineSimulatie {
 
         KantineSimulatie simulatie = new KantineSimulatie();
         simulatie.simuleer(dagen);
-    }
-
-    /**
-     * methode runVoorbeeld uit jpavoorbeel-project
-     */
-    public void runVoorbeeld() {
-        manager = ENTITY_MANAGER_FACTORY.createEntityManager();
-
-        // transactions omitted
-
-        manager.close();
-        ENTITY_MANAGER_FACTORY.close();
     }
 }
