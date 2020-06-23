@@ -242,6 +242,20 @@ public class KantineSimulatie {
         TypedQuery<Factuur> top3Query = manager.createNamedQuery("Factuur.top3Facturen", Factuur.class);
         List<Factuur> top3Facturen = top3Query.getResultList();
 
+        //query voor totale omzet en kortingen
+        typedQuery<Double> totale = manager.createNamedQuery("Artikel.totalen", Double.class);
+        List <Double> totaal = totale.getResultList();
+        //query voor totale omzet en kortingen per dag
+        typedQuery<Double> omzetPerDagQuery = manager.createNamedQuery("Artikel.totalenPerDag", Double.class);
+        List <Double> perDag = omzetPerDagQuery.getResultList();
+        //query voor top3 populairste producten
+        typedQuery<Artikel> top3Populariteit = manager.createNamedQuery("Artikel.top3Populariteit", Artikel.class);
+        List<Artikel> top3Populair = top3Populariteit.getResultList();
+        //query voor top 3 grootste omzet
+        typedQuery<Artikel> top3Omzet = manager.createNamedQuery("Artikel.top3Omzet", Artikel.class);
+        List<Artikel> topOmzet = top3Omzet.getResultList();
+
+
         //De info uitprinten
         System.out.println("Kortingen");
         for(int i = 0; i < 20; i++) {                       //dit is een for-loop, hier zou een foreach-loop moeten staan
@@ -258,6 +272,22 @@ public class KantineSimulatie {
             System.out.println();
         }
 
+        //Artikel info printen
+        for (double tot :totaal){
+            double totaalPerArtikel = tot;
+            System.out.println("de totale omzet en toegepaste korting is: "+ totaalPerArtikel);
+        }
+        for (double tot :perDag){
+            double totaalPerArtikelDag = tot;
+            System.out.println("de totale omzet en toegepaste kortingen van vandaag is: "+ totaalPerArtikelDag);
+        }
+        for(int i = 0; i < 3; i++) {
+            System.out.println(top3Populair.get(i));
+            System.out.println();
+         for(int i = 0; i <3; i++){
+             System.out.println(topOmzet.get(i));
+             System.out.println();
+         }
         manager.close();
         ENTITY_MANAGER_FACTORY.close();
     }
