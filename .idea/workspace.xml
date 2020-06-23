@@ -21,13 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="21febe36-74f5-41a3-8421-603c1d78e638" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Artikel.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Artikel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Factuur.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Factuur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/FactuurRegel.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/FactuurRegel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kantine.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kantine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineAanbod.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineAanbod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineSimulatie.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/KantineSimulatie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kassa.java" beforeDir="false" afterPath="$PROJECT_DIR$/KantineSimulatieBasis/src/main/java/Kassa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,22 +121,22 @@
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589719364273" />
     <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592738891824" />
-    <state width="914" height="283" key="GridCell.Tab.0.bottom" timestamp="1592839380386">
+    <state width="914" height="287" key="GridCell.Tab.0.bottom" timestamp="1592903888850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592839380386" />
-    <state width="914" height="283" key="GridCell.Tab.0.center" timestamp="1592839380385">
+    <state width="914" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592903888850" />
+    <state width="914" height="287" key="GridCell.Tab.0.center" timestamp="1592903888850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="283" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592839380385" />
-    <state width="914" height="283" key="GridCell.Tab.0.left" timestamp="1592839380385">
+    <state width="914" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592903888850" />
+    <state width="914" height="287" key="GridCell.Tab.0.left" timestamp="1592903888850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="283" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592839380385" />
-    <state width="914" height="283" key="GridCell.Tab.0.right" timestamp="1592839380385">
+    <state width="914" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592903888850" />
+    <state width="914" height="287" key="GridCell.Tab.0.right" timestamp="1592903888850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="283" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592839380385" />
+    <state width="914" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592903888850" />
     <state x="346" y="72" key="SettingsEditor" timestamp="1592738952708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

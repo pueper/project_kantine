@@ -4,6 +4,7 @@ import java.util.*;
 import javax.persistence.Persistence;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 
 public class KantineSimulatie {
@@ -223,28 +224,36 @@ public class KantineSimulatie {
             // reset de kassa voor de volgende dag
             kantine.getKassa().resetKassa();
         }
-        /*
-        //omzettotalen en gemiddelde omzet
-        double[] dagomzet = Administratie.berekenDagOmzet(omzet);
-        System.out.println();
-        System.out.println("Maandagen: " + dagomzet[0]);
-        System.out.println("Dinsdagen: " + dagomzet[1]);
-        System.out.println("Woensdagen: " + dagomzet[2]);
-        System.out.println("Donderdagen: " + dagomzet[3]);
-        System.out.println("Vrijdagen: " + dagomzet[4]);
-        System.out.println("Zaterdagen: " + dagomzet[5]);
-        System.out.println("Zondagen: " + dagomzet[6]);
-        System.out.println("Gemiddelde omzet: " + Administratie.berekenGemiddeldeOmzet(omzet));
-        */
         Session session = manager.unwrap(Session.class);
-        List<Factuur> facturen = session.createQuery("from Factuur").list();
-        double totaleOmzet = 0;
-        double totaleKorting = 0;
-        for(Factuur factuur : facturen) {
-            totaleOmzet += factuur.getTotaal();
-            totaleKorting += factuur.getKorting();
+
+        //query voor totale omzet
+        TypedQuery<Double> totOmzetQuery = manager.createNamedQuery("Factuur.totaleOmzet", Double.class);
+        double totaleOmzet = totOmzetQuery.getSingleResult();
+        //query voor totale korting
+        TypedQuery<Double> totKortingQuery = manager.createNamedQuery("Factuur.totaleKorting", Double.class);
+        double totaleKorting = totKortingQuery.getSingleResult();
+        //query voor gemiddelde omzet
+        TypedQuery<Double> gemOmzetQuery = manager.createNamedQuery("Factuur.gemiddeldeOmzet", Double.class);
+        double gemiddeldeOmzet = gemOmzetQuery.getSingleResult();
+        //query voor kortingen
+        TypedQuery<Double> query = manager.createNamedQuery("Factuur.alleKortingen", Double.class);
+        List<Double> kortingen = query.getResultList();
+        //query voor top 3 facturen
+        TypedQuery<Factuur> top3Query = manager.createNamedQuery("Factuur.top3Facturen", Factuur.class);
+        List<Factuur> top3Facturen = top3Query.getResultList();
+
+        //De info uitprinten
+        System.out.println("Kortingen");
+        for(int i = 0; i < 20; i++) {                       //dit is een for-loop, hier zou een foreach-loop moeten staan
+            System.out.println(kortingen.get(i));           //als we alle kortingen willen doorlopen
         }
         System.out.println("Omzet = " + totaleOmzet + ", korting = " + totaleKorting);
+        System.out.println("Gemiddelde omzet = " + gemiddeldeOmzet);
+        System.out.println("Top 3 facturen:");
+        for(int i = 0; i < 3; i++) {
+            System.out.println(top3Facturen.get(i));
+        }
+
         manager.close();
         ENTITY_MANAGER_FACTORY.close();
     }

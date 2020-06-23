@@ -1,9 +1,22 @@
+import jdk.jfr.Name;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.util.Iterator;
 
 @Entity
+@Table(name = "factuur")
+@NamedQuery(name = "Factuur.alleKortingen",
+            query = "select korting from Factuur")
+@NamedQuery(name = "Factuur.gemiddeldeOmzet",
+            query = "select avg(totaal) from Factuur")
+@NamedQuery(name = "Factuur.totaleOmzet",
+            query = "select sum(totaal) from Factuur")
+@NamedQuery(name = "Factuur.totaleKorting",
+            query = "select sum(korting) from Factuur")
+@NamedQuery(name = "Factuur.top3Facturen",
+            query = "from Factuur order by totaal desc")
 public class Factuur implements Serializable {
 
     @Id
