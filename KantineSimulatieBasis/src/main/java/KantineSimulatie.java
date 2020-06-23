@@ -247,11 +247,15 @@ public class KantineSimulatie {
         for(int i = 0; i < 20; i++) {                       //dit is een for-loop, hier zou een foreach-loop moeten staan
             System.out.println(kortingen.get(i));           //als we alle kortingen willen doorlopen
         }
+        System.out.println();
         System.out.println("Omzet = " + totaleOmzet + ", korting = " + totaleKorting);
         System.out.println("Gemiddelde omzet = " + gemiddeldeOmzet);
+        System.out.println();
         System.out.println("Top 3 facturen:");
         for(int i = 0; i < 3; i++) {
+            System.out.println("Factuur" + (i+1));
             System.out.println(top3Facturen.get(i));
+            System.out.println();
         }
 
         manager.close();

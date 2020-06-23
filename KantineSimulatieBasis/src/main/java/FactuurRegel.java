@@ -10,19 +10,18 @@ public class FactuurRegel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    //@ManyToOne(cascade = CascadeType.ALL);
-    //@JoinColumn(name = "factuur_id")
-    //private Factuur factuur;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "factuur_id")
+    private Factuur factuur;
 
-    @OneToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "artikel_naam")
+    @Embedded
     private Artikel artikel;
 
     public FactuurRegel() {}
 
     public FactuurRegel(Factuur factuur, Artikel artikel) {
         this.artikel = artikel;
-        //this.factuur = factuur;
+        this.factuur = factuur;
     }
 
     /**
@@ -30,6 +29,6 @@ public class FactuurRegel implements Serializable {
      */
     @Override
     public String toString() {
-        return "poep";
+        return artikel.toString();
     }
 }

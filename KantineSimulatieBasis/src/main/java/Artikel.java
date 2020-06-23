@@ -1,29 +1,33 @@
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
-@Entity
-@Table(name = "Artikel")
+@Embeddable
 public class Artikel {
     //aanmaak velden
-    @Id
+
+    @Column(name = "artikel_naam")
     private String naam;
+
+    @Column(name = "artikel_prijs")
     private double prijs;
+
+    @Column(name = "artikel_korting")
     private double korting;
 
-    //constructor met parameter C
-    public Artikel(String naam, double prijs, double korting){
-        this.naam = naam;
-        this.prijs = prijs;
-        this.korting = korting;
-    }
+    public Artikel() {}
 
     //constructor zonder parameter korting
     public Artikel(String naam, double prijs){
         this.naam = naam;
         this.prijs = prijs;
         korting = 0;
+    }
+
+    //constructor met parameter C
+    public Artikel(String naam, double prijs, double korting){
+        this.naam = naam;
+        this.prijs = prijs;
+        this.korting = korting;
     }
 
     //getters en setters E

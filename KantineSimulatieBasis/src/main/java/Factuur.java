@@ -3,6 +3,8 @@ import jdk.jfr.Name;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.io.Serializable;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 @Entity
@@ -32,12 +34,14 @@ public class Factuur implements Serializable {
     @Column(name = "totaal")
     private double totaal;
 
-    //@Column(name = "regels")
-    //@ElementCollection(targetClass = FactuurRegel.class)
+    @OneToMany(targetEntity = FactuurRegel.class, mappedBy = "factuur",
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FactuurRegel> regels;
 
     public Factuur() {
         totaal = 0;
         korting = 0;
+        regels =  new ArrayList<>();
     }
 
     public Factuur(Dienblad klant, LocalDate datum) {
@@ -64,6 +68,8 @@ public class Factuur implements Serializable {
             Artikel a = it.next();
             korting += a.getPrijs() * (pKorting) + a.getKorting();
             totaal += a.getPrijs() * (1 - pKorting) - a.getKorting();
+            FactuurRegel regel = new FactuurRegel(this, a);
+            regels.add(regel);
         }
     }
 
@@ -107,7 +113,11 @@ public class Factuur implements Serializable {
      */
     @Override
     public String toString() {
-        return "Totaal = " + totaal + ", korting = " + korting + ", datum = " + datum;
+        String artikelen = "Artikelen: ";
+        for(FactuurRegel regel : regels) {
+            artikelen += "\r\n" + regel.toString();
+        }
+        return "Totaal: " + totaal + ", korting: " + korting + ", datum: " + datum + "\r\n" + artikelen;
     }
 
 }
