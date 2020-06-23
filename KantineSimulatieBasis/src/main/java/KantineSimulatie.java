@@ -243,16 +243,16 @@ public class KantineSimulatie {
         List<Factuur> top3Facturen = top3Query.getResultList();
 
         //query voor totale omzet en kortingen
-        typedQuery<Double> totale = manager.createNamedQuery("Artikel.totalen", Double.class);
+        TypedQuery<Double> totale = manager.createNamedQuery("Artikel.totalen", Double.class);
         List <Double> totaal = totale.getResultList();
         //query voor totale omzet en kortingen per dag
-        typedQuery<Double> omzetPerDagQuery = manager.createNamedQuery("Artikel.totalenPerDag", Double.class);
+        TypedQuery<Double> omzetPerDagQuery = manager.createNamedQuery("Artikel.totalenPerDag", Double.class);
         List <Double> perDag = omzetPerDagQuery.getResultList();
         //query voor top3 populairste producten
-        typedQuery<Artikel> top3Populariteit = manager.createNamedQuery("Artikel.top3Populariteit", Artikel.class);
+        TypedQuery<Artikel> top3Populariteit = manager.createNamedQuery("Artikel.top3Populariteit", Artikel.class);
         List<Artikel> top3Populair = top3Populariteit.getResultList();
         //query voor top 3 grootste omzet
-        typedQuery<Artikel> top3Omzet = manager.createNamedQuery("Artikel.top3Omzet", Artikel.class);
+        TypedQuery<Artikel> top3Omzet = manager.createNamedQuery("Artikel.top3Omzet", Artikel.class);
         List<Artikel> topOmzet = top3Omzet.getResultList();
 
 
@@ -284,6 +284,7 @@ public class KantineSimulatie {
         for(int i = 0; i < 3; i++) {
             System.out.println(top3Populair.get(i));
             System.out.println();
+        }
          for(int i = 0; i <3; i++){
              System.out.println(topOmzet.get(i));
              System.out.println();
