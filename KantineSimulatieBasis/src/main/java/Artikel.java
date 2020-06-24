@@ -2,14 +2,14 @@ import javax.persistence.*;
 
 
 @Embeddable
-@NamedQuery (name = "Artikel.totalen",
-             query = "select naam, totaal, sum(korting) from Artikel group by id")
-@NamedQuery (name = "Artikel.totalenPerDag",
-             query = "select naam, totaal, sum(korting), from Artikel where datum is curdate() - interval 1 day group by id")
-@NamedQuery (name = "top3Populariteit",
-             query = "from Artikel group by id order by aantal desc")
-@NamedQuery (name = "top3Omzet",
-             query = "from Artikel order by totaal desc")
+@NamedQuery(name = "Artikel.totalen",
+        query = "select artikel_naam, sum(artikel_prijs), sum(artikel_korting) from Artikel group by artikel_naam")
+@NamedQuery(name = "Artikel.totalenPerDag",
+        query = "select artikel_naam, sum(artikel_prijs), sum(artikel_korting), from Artikel where datum is curdate() - interval 1 day group by artikel_naam")
+@NamedQuery(name = "top3Populariteit",
+        query = "from Artikel group by artikel_naam order by aantal desc")
+@NamedQuery(name = "top3Omzet",
+        query = "from Artikel order by sum(artikel_prijs) desc")
 
 public class Artikel {
     //aanmaak velden
